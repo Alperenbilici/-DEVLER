@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV10
+{
+    internal class Program
+    {
+       
+            public static void Main(string[] args)
+            {
+                double[] burslar = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+
+                foreach (double burs in burslar)
+                {
+                    if (burs < 500)
+                    {
+                        double yeniBurs = (burs * 0.1) + burs + 50;
+                        Console.WriteLine(yeniBurs);
+                    }
+                    else
+                    {
+                        Console.WriteLine(burs);
+                    }
+                }
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
+
