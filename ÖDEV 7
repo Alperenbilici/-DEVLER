@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV7
+{
+    internal class Program
+    {
+       
+            static void Main(string[] args)
+            {
+                Console.Write("Ikili (Binary) Sayı Girin: ");
+                string ikiliStr = Console.ReadLine();
+
+                if (IsBinary(ikiliStr))
+                {
+                    int sayi = Convert.ToInt32(ikiliStr);
+                    int onluDeger = 0;
+                    int tabanDeger = 1;
+                    int basamakDeger;
+
+                    while (sayi > 0)
+                    {
+                        basamakDeger = sayi % 10;
+                        onluDeger = onluDeger + basamakDeger * tabanDeger;
+                        sayi = sayi / 10;
+                        tabanDeger = tabanDeger * 2;
+                    }
+
+                    Console.WriteLine("Ikili (Binary) Sayı: " + ikiliStr);
+                    Console.WriteLine("Onlu (Decimal) Sayı: " + onluDeger);
+                }
+                else
+                {
+                    Console.WriteLine("Geçerli bir ikili (binary) sayı girmelisiniz.");
+                }
+
+                Console.ReadLine();
+            }
+
+            static bool IsBinary(string input)
+            {
+                foreach (char digit in input)
+                {
+                    if (digit != '0' && digit != '1')
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    }
+
