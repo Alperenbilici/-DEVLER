@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV6
+{
+    internal class Program
+    {
+       
+            static void Main(string[] args)
+            {
+                Console.WriteLine("İki sayı girin:");
+
+                
+                Console.Write("İlk sayı: ");
+                string ilkSayiStr = Console.ReadLine();
+
+                
+                Console.Write("İkinci sayı: ");
+                string ikinciSayiStr = Console.ReadLine();
+
+                if (int.TryParse(ilkSayiStr, out int ilkSayi) && int.TryParse(ikinciSayiStr, out int ikinciSayi))
+                {
+                    Console.WriteLine("TEK’leri mi ÇİFT’leri mi toplamak istersiniz? (TEK/ÇİFT)");
+                    string tercih = Console.ReadLine().ToUpper();
+
+                    if (ilkSayi <= ikinciSayi)
+                    {
+                        int toplam = 0;
+
+                        if (tercih == "TEK")
+                        {
+                            for (int i = ilkSayi % 2 == 0 ? ilkSayi + 1 : ilkSayi; i <= ikinciSayi; i += 2)
+                            {
+                                toplam += i;
+                            }
+                            Console.WriteLine("{0} ile {1} arasındaki TEK sayıların toplamı: {2}", ilkSayi, ikinciSayi, toplam);
+                        }
+                        else if (tercih == "ÇİFT")
+                        {
+                            for (int i = ilkSayi % 2 == 0 ? ilkSayi : ilkSayi + 1; i <= ikinciSayi; i += 2)
+                            {
+                                toplam += i;
+                            }
+                            Console.WriteLine("{0} ile {1} arasındaki ÇİFT sayıların toplamı: {2}", ilkSayi, ikinciSayi, toplam);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Geçersiz tercih. 'TEK' veya 'ÇİFT' yazmalısınız.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("İlk sayı, ikinci sayıdan küçük veya eşit olmalıdır.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Geçerli sayılar girilmedi.");
+                }
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
