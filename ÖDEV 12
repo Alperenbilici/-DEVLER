@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV12
+{
+    internal class Program
+    {
+       
+            public static void Main(string[] args)
+            {
+                int[] X = new int[5];
+                int toplam = 0, say = 0;
+
+                for (int i = 0; i < X.Length; i++)
+                {
+                    Console.Write((i + 1) + ". Elemanı Gir: ");
+                    X[i] = Int32.Parse(Console.ReadLine());
+
+                    if (X[i] % 10 == 0)
+                    {
+                        say++;
+                        toplam += X[i];
+                    }
+                }
+
+                double ortalama = (say > 0) ? (double)toplam / say : 0;
+
+                Console.WriteLine("Son Rakamı Sıfır Olan Sayı Adedi: " + say);
+                Console.WriteLine("Son Rakamı Sıfır Olan Sayıların Toplamı: " + toplam);
+                Console.WriteLine("Son Rakamı Sıfır Olan Sayıların Ortalaması: " + ortalama);
+
+                Console.Write("Press any key to continue . . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
