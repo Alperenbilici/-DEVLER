@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV5
+{
+    internal class Program
+    {
+        
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Bir sayı girin:");
+                string girilenSayiStr = Console.ReadLine();
+
+                if (int.TryParse(girilenSayiStr, out int sayi))
+                {
+                    Console.WriteLine("TEK’leri mi ÇİFT’leri mi toplamak istersiniz? (TEK/ÇİFT)");
+                    string tercih = Console.ReadLine().ToUpper(); 
+
+                    int toplam = 0;
+
+                    if (tercih == "TEK")
+                    {
+                        for (int i = 1; i <= sayi; i += 2)
+                        {
+                            toplam += i;
+                        }
+                        Console.WriteLine("1 ile {0} arasındaki TEK sayıların toplamı: {1}", sayi, toplam);
+                    }
+                    else if (tercih == "ÇİFT")
+                    {
+                        for (int i = 2; i <= sayi; i += 2)
+                        {
+                            toplam += i;
+                        }
+                        Console.WriteLine("1 ile {0} arasındaki ÇİFT sayıların toplamı: {1}", sayi, toplam);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geçersiz tercih. 'TEK' veya 'ÇİFT' yazmalısınız.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Geçerli bir sayı girmelisiniz.");
+                }
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
+
