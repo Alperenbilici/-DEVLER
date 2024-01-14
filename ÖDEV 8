@@ -1,1 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV8
+{
+    internal class Program
+    {
+      
+            static void Main(string[] args)
+            {
+                Console.Write("Kaç adet sayı girmek istiyorsunuz? ");
+                int adet = Convert.ToInt32(Console.ReadLine());
+
+                int toplam = 0;
+
+                for (int i = 1; i <= adet; i++)
+                {
+                    Console.Write("Sayı {0}: ", i);
+                    int sayi = Convert.ToInt32(Console.ReadLine());
+                    toplam += sayi;
+                }
+
+                double ortalama = (double)toplam / adet;
+
+                Console.WriteLine("Girilen {0} adet sayının toplamı: {1}", adet, toplam);
+                Console.WriteLine("Girilen {0} adet sayının ortalaması: {1}", adet, ortalama);
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
 
