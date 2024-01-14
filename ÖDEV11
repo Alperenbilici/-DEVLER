@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEV11
+{
+    internal class Program
+    {
+       
+            public static void Main(string[] args)
+            {
+                double[] a = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+                int b = 0;
+
+            tekrar:
+                if (b <= 9)
+                {
+                    if (a[b] >= 500)
+                    {
+                        Console.WriteLine(a[b]);
+                        b++;
+                        goto tekrar;
+                    }
+
+                    a[b] = (a[b] * 0.1) + a[b];
+                    a[b] = a[b] + 50;
+
+                    Console.WriteLine(a[b]);
+
+                    b++;
+                    goto tekrar;
+                }
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
