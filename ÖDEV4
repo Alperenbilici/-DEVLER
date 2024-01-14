@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ÖDEVV4
+{
+    internal class Program
+    {
+       
+            static void Main(string[] args)
+            {
+                int toplam = 0;
+                int girilenSayi;
+
+                Console.WriteLine("Sayıları toplamak için bir sayı girin. 83 girdiğinizde toplama işlemi sona erecek.");
+
+                do
+                {
+                    Console.Write("Sayı girin: ");
+                    string girilenSayiStr = Console.ReadLine();
+
+                    if (int.TryParse(girilenSayiStr, out girilenSayi))
+                    {
+                        if (girilenSayi != 83)
+                        {
+                            toplam += girilenSayi;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Toplama işlemi 83 girildiğinde sona erdi.");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geçerli bir sayı girmelisiniz.");
+                    }
+
+                } while (true);
+
+                Console.WriteLine("Toplama işlemi sona erdi. Toplam: " + toplam);
+
+                Console.Write("Devam etmek için bir tuşa basınız. . . ");
+                Console.ReadKey(true);
+            }
+        }
+    }
+
